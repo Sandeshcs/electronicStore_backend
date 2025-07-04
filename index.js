@@ -549,7 +549,7 @@ const DeleteOrderedProducts = async (orderId) => {
     }
 }
 
-//api to delete orderd products.
+//api to delete ordered products.
 app.delete('/orderhistory/delete/:orderedId', async (req, res) => {
     try{
         const dataFound = await DeleteOrderedProducts(req.params.orderedId);
@@ -571,7 +571,7 @@ const updateOrderedProducts = async (orderId, updateDetails) => {
         return productsFound;
     }
     catch (error) {
-        console.log("error occured while getting ordered products, ", error);
+        console.log("error occured while updating ordered products, ", error);
     }
 }
 
@@ -601,68 +601,68 @@ const addProducts = async (orderData) => {
     }
 }
 
-//api to add orderd products.
-app.post('/errorchecking/add', async (req, res) => {
-    try{
-        const dataFound = await addProducts(req.body);
-        if(dataFound){
-            res.status(201).send({message: 'added successfully', data: dataFound});
-        }else{
-            res.status(404).send({error: 'no error checking found.'});
-        }
-    }
-    catch (error) {
-        res.status(500).send({error: 'failed to add error checking.'});
-    }
-})
+// //api to add orderd products.
+// app.post('/errorchecking/add', async (req, res) => {
+//     try{
+//         const dataFound = await addProducts(req.body);
+//         if(dataFound){
+//             res.status(201).send({message: 'added successfully', data: dataFound});
+//         }else{
+//             res.status(404).send({error: 'no error checking found.'});
+//         }
+//     }
+//     catch (error) {
+//         res.status(500).send({error: 'failed to add error checking.'});
+//     }
+// })
 
-//function to get ordered products.
-const getProducts = async () => {
-    try{
-        const productsFound = await ErrorChecking.find();
-        return productsFound;
-    }
-    catch (error) {
-        console.log("error occured while getting ordered products, ", error);
-    }
-}
+// //function to get ordered products.
+// const getProducts = async () => {
+//     try{
+//         const productsFound = await ErrorChecking.find();
+//         return productsFound;
+//     }
+//     catch (error) {
+//         console.log("error occured while getting ordered products, ", error);
+//     }
+// }
 
-//api to add orderd products.
-app.get('/errorchecking/get', async (req, res) => {
-    try{
-        const dataFound = await getProducts();
-        if(dataFound.length > 0){
-            res.status(200).send({message: 'all error checking found.', data: dataFound});
-        }else{
-            res.status(404).send({error: 'no error checking found.'});
-        }
-    } 
-    catch (error) {
-        res.status(500).send({error: 'failed to get error checking.'});
-    }
-});
+// //api to get orderd products.
+// app.get('/errorchecking/get', async (req, res) => {
+//     try{
+//         const dataFound = await getProducts();
+//         if(dataFound.length > 0){
+//             res.status(200).send({message: 'all error checking found.', data: dataFound});
+//         }else{
+//             res.status(404).send({error: 'no error checking found.'});
+//         }
+//     } 
+//     catch (error) {
+//         res.status(500).send({error: 'failed to get error checking.'});
+//     }
+// });
 
-const deleteProducts = async (errorId) => {
-    try{
-        const productsFound = await ErrorChecking.findByIdAndDelete(errorId, {new: true});
-        return productsFound;
-    }
-    catch (error) {
-        console.log("error occured while getting ordered products, ", error);
-    }
-}
+// const deleteProducts = async (errorId) => {
+//     try{
+//         const productsFound = await ErrorChecking.findByIdAndDelete(errorId, {new: true});
+//         return productsFound;
+//     }
+//     catch (error) {
+//         console.log("error occured while getting ordered products, ", error);
+//     }
+// }
 
-//api to add orderd products.
-app.delete('/errorchecking/delete/:errorId', async (req, res) => {
-    try{
-        const dataFound = await deleteProducts(req.params.errorId);
-        if(dataFound){
-            res.status(200).send({message: 'deleted successfully.', data: dataFound});
-        }else{
-            res.status(404).send({error: 'no error checking found.'});
-        }
-    } 
-    catch (error) {
-        res.status(500).send({error: 'failed to get error checking.'});
-    }
-})
+// //api to delete ordered products.
+// app.delete('/errorchecking/delete/:errorId', async (req, res) => {
+//     try{
+//         const dataFound = await deleteProducts(req.params.errorId);
+//         if(dataFound){
+//             res.status(200).send({message: 'deleted successfully.', data: dataFound});
+//         }else{
+//             res.status(404).send({error: 'no error checking found.'});
+//         }
+//     } 
+//     catch (error) {
+//         res.status(500).send({error: 'failed to get error checking.'});
+//     }
+// })
