@@ -590,18 +590,18 @@ app.post('/orderhistory/update/:orderId', async (req, res) => {
     }
 });
 
-const addProducts = async (orderData) => {
-    try{
-        const productsAdded = new ErrorChecking(orderData);
-        const savedOrders = await productsAdded.save();
-        return savedOrders;
-    }
-    catch (error) {
-        console.log("error occured while adding ordered products, ", error);
-    }
-}
-
 // //api to add orderd products.
+// const addProducts = async (orderData) => {
+//     try{
+//         const productsAdded = new ErrorChecking(orderData);
+//         const savedOrders = await productsAdded.save();
+//         return savedOrders;
+//     }
+//     catch (error) {
+//         console.log("error occured while adding ordered products, ", error);
+//     }
+// }
+
 // app.post('/errorchecking/add', async (req, res) => {
 //     try{
 //         const dataFound = await addProducts(req.body);
